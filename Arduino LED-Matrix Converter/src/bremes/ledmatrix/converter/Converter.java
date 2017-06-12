@@ -28,7 +28,7 @@ public class Converter {
 				BufferedImage frame = ImageIO.read(frameFile);
 				System.out.println(frameFile.getName());
 				for (int row = 0; row < 8; row++) {
-					for (int column = 7; column >= 0; column--) {
+					for (int column = 0; column < 8; column++) {
 						int argb = frame.getRGB(column, row);
 						int red = (argb >> 16) & 0xff;
 						int green = (argb >> 8) & 0xff;
@@ -36,7 +36,7 @@ public class Converter {
 						
 						int rgbSum = red + green + blue;
 						
-						if (rgbSum > 254) {
+						if (rgbSum > 382) {
 							System.out.print(" ");
 							bufferedWriter.write("0");
 						} else {
